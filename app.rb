@@ -1,3 +1,5 @@
+require './lib/listing.rb'
+
 require 'sinatra/base'
 
 class MakersBnB < Sinatra::Base

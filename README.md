@@ -28,11 +28,13 @@
 * A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
 * Basic payment implementation though Stripe.
 
-# User Stories 
+# User Stories
 
 # Domain Model
 
-# CRC 
+# CRC
 
-# Agreed working day 
+# Agreed working day
 (i.e. stand-ups/ pull requests/ retros)
+
+CREATE TABLE listings(id SERIAL PRIMARY KEY, name VARCHAR(60), description VARCHAR(280), price DECIMAL(6, 2), created_at TIMESTAMP);
