@@ -11,8 +11,9 @@
 
     <p>
       <ul>
-        <li>Test house: This is a test house, ppn: £50.</li>
-        <li>Test another house: This is another test house, ppn: £45.</li>
+        <% @listings.each do |listing| %>
+        <li><%= listing %></li>
+        <% end %>
       </ul>
     </p>
   </div>

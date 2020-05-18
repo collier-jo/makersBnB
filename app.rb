@@ -3,6 +3,7 @@ require 'sinatra/base'
 class MakersBnB < Sinatra::Base
 
   get '/' do
+    @listings = Listing.all
     erb :index
   end
 
