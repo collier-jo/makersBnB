@@ -7,7 +7,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/register' do
-    p params
+    User.create(email: params[:email], username: params[:username], password: params[:password])
   end
 
   run! if app_file == $0
