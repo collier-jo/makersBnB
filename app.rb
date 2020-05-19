@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './database_connection_setup'
 require './lib/user'
 require 'sinatra/flash'
+require 'uri'
 
 class MakersBnB < Sinatra::Base
   enable :sessions
