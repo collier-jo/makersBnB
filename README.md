@@ -36,5 +36,3 @@
 
 # Agreed working day
 (i.e. stand-ups/ pull requests/ retros)
-
-CREATE TABLE listings(id SERIAL PRIMARY KEY, name VARCHAR(60), description VARCHAR(280), price DECIMAL(6, 2), created_at TIMESTAMP);
