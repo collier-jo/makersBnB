@@ -13,7 +13,7 @@ feature 'Log In' do
     # expect(page).to have_content "Welcome test_user!"
   end
 
-  scenario 'a user sees an error if their credentials do not match' do
+  scenario 'a user sees an error if their username does not match' do
     User.create(username: 'username', email: 'email@email.com', password: 'test_password')
 
     visit '/sessions/new'
@@ -25,4 +25,18 @@ feature 'Log In' do
     expect(current_path).to eq '/sessions/new'
     expect(page).to have_content 'Please check your username or password!'
   end
+
+  scenario 'a user sees an error if their password does not match' do
+    User.create(username: 'username', email: 'email@email.com', password: 'test_password')
+
+    visit '/sessions/new'
+
+    fill_in :username, with: 'username'
+    fill_in :password, with: 'wrong_password'
+    click_button('Sign In')
+
+    expect(current_path).to eq '/sessions/new'
+    expect(page).to have_content 'Please check your username or password!'
+  end
+
 end
