@@ -54,6 +54,7 @@ class MakersBnB < Sinatra::Base
 
     if user
       session[:user_id] = user.id
+      flash[:notice] = "Welcome #{user.username}!"
       redirect '/'
     else
       flash[:notice] = 'Please check your username or password!'
