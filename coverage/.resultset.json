@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/elizabethturney/Desktop/makersBnB/spec/features/viewing_listings_spec.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/features/viewing_listings_spec.rb": {
         "lines": [
           1,
           1,
@@ -15,7 +15,7 @@
           null
         ]
       },
-      "/Users/elizabethturney/Desktop/makersBnB/spec/listing_spec.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/listing_spec.rb": {
         "lines": [
           1,
           1,
@@ -37,6 +37,6 @@
         ]
       }
     },
-    "timestamp": 1589823428
+    "timestamp": 1589882794
   }
 }

@@ -3,7 +3,7 @@ require 'pg'
 class Listing
 
   def self.all
-    if ENV['ENV_RACK'] == 'test'
+    if ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'makers_bnb_test')
     else
       connection = PG.connect(dbname: 'makers_bnb')
