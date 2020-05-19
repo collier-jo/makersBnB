@@ -18,7 +18,6 @@ class MakersBnB < Sinatra::Base
     erb :'listings/new'
   end
 
-
   get '/listings/:id/show' do
     p params
     erb (:'listings/show') # I know this works now 
