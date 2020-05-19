@@ -27,7 +27,7 @@ class MakersBnB < Sinatra::Base
     Listing.create(name: params[:name], description: params[:description], price: params[:price])
     # connection = PG.connect(dbname: 'makers_bnb_test')
     # connection.exec("INSERT INTO listings (name, description, price) VALUES ('#{name}', '#{description}', '#{price}');")
-    flash[:notice] = "Your listing has been added" 
+    flash[:notice] = "Your listing has been added"
   end
 
   get '/signup' do
@@ -41,6 +41,18 @@ class MakersBnB < Sinatra::Base
     rescue PG::UniqueViolation
       redirect '/signup'
     end
+    session[:user_id] = user.id
+    redirect '/'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{params[:username]}';")
+    user = User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'])
+
     session[:user_id] = user.id
     redirect '/'
   end
