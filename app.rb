@@ -14,7 +14,11 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/register' do
-    user = User.create(email: params[:email], username: params[:username], password: params[:password])
+    begin
+      user = User.create(email: params[:email], username: params[:username], password: params[:password])
+    rescue PG::UniqueViolation
+      redirect '/signup'
+    end
     session[:user_id] = user.id
     redirect '/'
   end
