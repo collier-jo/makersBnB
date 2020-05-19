@@ -19,7 +19,7 @@ SimpleCov.start
 
 Capybara.app = MakersBnB
 
-RSpec.configure do|config|
+RSpec.configure do |config|
   config.before(:each) do
     setup_test_database
   end
