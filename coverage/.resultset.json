@@ -1,16 +1,33 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/student/Desktop/makers/makersBnB/spec/setup_test_database.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null
+        ]
+      },
       "/Users/student/Desktop/makers/makersBnB/spec/features/viewing_listings_spec.rb": {
         "lines": [
           1,
           1,
           null,
           1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
           null,
           1,
           1,
-          0,
+          1,
           null,
           null
         ]
@@ -24,19 +41,27 @@
           1,
           1,
           1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
           1,
           1,
           null,
           null,
-          1,
-          1,
-          1,
           null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1589882794
+    "timestamp": 1589884047
   }
 }
