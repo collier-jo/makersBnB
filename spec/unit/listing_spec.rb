@@ -21,4 +21,13 @@ describe Listing do
     end
   end
 
+  describe '.create' do
+    it 'lets a user create a new listing' do
+      Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
+
+      expect(Listing.all).to include "Village House"
+      expect(Listing.all).to include "Lovely cottage in the countryside"
+      expect(Listing.all).to include "50.00"
+    end
+  end
 end
