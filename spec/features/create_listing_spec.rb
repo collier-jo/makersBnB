@@ -3,9 +3,9 @@ feature 'Create Listing' do
     visit '/listings/new'
 
     expect(page).to have_content 'Add new listing'
-    fill_in :name, with: 'Fun House'
-    fill_in :description, with: 'A really fun place on the surface of the sun'
-    fill_in :price, with: '100.00'
+    fill_in('name', with: 'Fun House')
+    fill_in('description', with: 'A really fun place on the surface of the sun')
+    fill_in('price', with: '100.00')
     click_button 'Submit'
 
     expect(current_path).to eq '/'

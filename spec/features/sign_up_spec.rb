@@ -10,7 +10,7 @@ feature 'User sign up' do
   end
 
   scenario 'An email/username already exists' do
-    user = User.create(
+    User.create(
       email: 'email@email.com',
       password: 'password123',
       username: 'user1'
