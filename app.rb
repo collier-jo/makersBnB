@@ -51,8 +51,6 @@ class MakersBnB < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    # result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{params[:username]}';")
-    # user = User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'])
 
     if user
       session[:user_id] = user.id
@@ -61,6 +59,12 @@ class MakersBnB < Sinatra::Base
       flash[:notice] = 'Please check your username or password!'
       redirect '/sessions/new'
     end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out!'
+    redirect '/'
   end
 
   run! if app_file == $0

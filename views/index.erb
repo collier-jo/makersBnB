@@ -10,6 +10,10 @@
     <h1>Welcome to MakersBnB</h1>
       <%= flash[:notice] %>
 
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" name="" value="Sign Out">
+    </form>
+
     <form action='/listings/new'>
       <input type="submit" value="Add Listing"/>
     </form>

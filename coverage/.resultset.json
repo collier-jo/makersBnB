@@ -117,6 +117,28 @@
           null
         ]
       },
+      "/Users/student/Desktop/makers/makersBnB/spec/features/signing_out_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/student/Desktop/makers/makersBnB/spec/features/viewing_listings_spec.rb": {
         "lines": [
           1,
@@ -290,6 +312,6 @@
         ]
       }
     },
-    "timestamp": 1589905554
+    "timestamp": 1589906472
   }
 }
