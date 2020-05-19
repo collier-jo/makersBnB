@@ -1,4 +1,5 @@
 require_relative './setup_test_database'
+require 'features/web_helpers'
 
 ENV['RACK_ENV'] = 'test'
 
