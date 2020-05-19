@@ -18,10 +18,14 @@
           1,
           null,
           1,
+          1,
+          null,
+          1,
+          null,
+          1,
           null,
           1,
           1,
-          0,
           null,
           null
         ]
@@ -39,21 +43,14 @@
           1,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          1,
           null,
           null,
           null
         ]
       }
     },
-<<<<<<< HEAD
-    "timestamp": 1589880928
-=======
-    "timestamp": 1589880091
->>>>>>> 8ab6688029f70f1024887874bd04566cab992cf4
+    "timestamp": 1589881682
   }
 }

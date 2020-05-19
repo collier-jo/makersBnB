@@ -56,14 +56,41 @@ As a user, so I can make an enquiry,
 I would like to email the space owner
 
 # Domain Model
+Object 	| Message 
+Listing		| .initialize
+			Name
+			Description
+			PPN
+		| .all **
+		| .create **
+		| .update
+		| .delete 
+		| .find
+
+User 	| .all
+		| .create
+
 
 # CRC
 
+Database:
+makers_bnb 
+makers_bnb_test
+
+
+Tables:
+Listings: id primary key / foreign key(user id)/ name/ description/ price
+User table: id primary / name/ username/ email/ password
+Dates table?: 
+Domain
+
+
 # Agreed working day
 (i.e. stand-ups/ pull requests/ retros)
-<<<<<<< HEAD
-
-CREATE TABLE listings(id SERIAL PRIMARY KEY, name VARCHAR(60), description VARCHAR(280), price DECIMAL(6, 2), created_at TIMESTAMP);
 
 =======
->>>>>>> 8ab6688029f70f1024887874bd04566cab992cf4
+
+
+
+
+

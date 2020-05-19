@@ -12,8 +12,8 @@ class Listing
     arr = []
     result.each do |listing| 
       arr.push(listing["name"])
-      #arr.push(listing["description"])
-      #arr.push(listing["price"])
+      arr.push(listing["description"])
+      arr.push(listing["price"])
     end 
     return arr
   end
