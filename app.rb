@@ -2,7 +2,6 @@ require 'sinatra/base'
 require './database_connection_setup'
 require './lib/user'
 require 'sinatra/flash'
-require 'uri'
 
 class MakersBnB < Sinatra::Base
   enable :sessions
@@ -13,6 +12,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/signup' do
+    flash[:notice] = "this username/email already exists"
     erb(:signup)
   end
 
@@ -21,7 +21,6 @@ class MakersBnB < Sinatra::Base
       user = User.create(email: params[:email], username: params[:username], password: params[:password])
     rescue PG::UniqueViolation
       redirect '/signup'
-      flash[:notice] = "this username/email already exists"
     end
     session[:user_id] = user.id
     redirect '/'
