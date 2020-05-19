@@ -1,4 +1,4 @@
-feature 'Log In' do
+feature 'Sign In' do
   scenario 'a user can log in into his account' do
     User.create(username: 'username', email: 'email@email.com', password: 'test_password')
 
