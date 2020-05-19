@@ -18,6 +18,12 @@ class MakersBnB < Sinatra::Base
     erb :'listings/new'
   end
 
+
+  get '/listings/:id/show' do
+    p params
+    erb (:'listings/show') # I know this works now 
+  end
+
   post '/listings' do
     Listing.create(name: params[:name], description: params[:description], price: params[:price])
     flash[:notice] = "Your listing has been added"
