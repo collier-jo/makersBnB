@@ -1,4 +1,5 @@
 require 'database_connection'
+
 describe DatabaseConnection do
   describe '.setup' do
     it 'sets up a connection to a database through PG' do
@@ -6,6 +7,7 @@ describe DatabaseConnection do
       DatabaseConnection.setup('makers_bnb_test')
     end
   end
+  
   describe '.query' do
     it 'executes a query via PG' do
       connection = DatabaseConnection.setup('makers_bnb_test')
