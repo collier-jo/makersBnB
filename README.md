@@ -61,6 +61,9 @@ I would like to email the space owner
 
 # Agreed working day
 (i.e. stand-ups/ pull requests/ retros)
+<<<<<<< HEAD
 
 CREATE TABLE listings(id SERIAL PRIMARY KEY, name VARCHAR(60), description VARCHAR(280), price DECIMAL(6, 2), created_at TIMESTAMP);
 
+=======
+>>>>>>> 8ab6688029f70f1024887874bd04566cab992cf4
