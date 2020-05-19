@@ -1,4 +1,7 @@
 <div class="container">
+  <h2>
+    <%= flash[:notice] %>
+  </h2>
   <h1>Sign In</h1>
   <form action="/sessions" method="post">
     <label for="username">Username

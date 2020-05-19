@@ -46,15 +46,21 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/sessions/new' do
-    erb :'sessions/new'
+    erb :'/sessions/new'
   end
 
   post '/sessions' do
-    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{params[:username]}';")
-    user = User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'])
+    user = User.authenticate(username: params[:username], password: params[:password])
+    # result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{params[:username]}';")
+    # user = User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'])
 
-    session[:user_id] = user.id
-    redirect '/'
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash[:notice] = 'Please check your username or password!'
+      redirect '/sessions/new'
+    end
   end
 
   run! if app_file == $0
