@@ -1,10 +1,8 @@
 require 'pg'
 
-p "Setting up test database..."
+p "Setting up database..."
 
 def setup_test_database
   connection = PG.connect(dbname: 'makers_bnb_test')
-  connection.exec("TRUNCATE users;")
-end
-
-# Amend line 5 to add listings table
+  connection.exec('TRUNCATE listings, users;')
+end  

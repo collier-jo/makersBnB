@@ -1,0 +1,25 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to MakersBnB</h1>
+      <%= flash[:notice] %>
+
+    <form action='/listings/new'>
+      <input type="submit" value="Add Listing"/>
+    </form>
+    <p>
+      <ul>
+        <% @listings.each do |listing| %>
+        <li><%= listing %></li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
+</body>
+</html>

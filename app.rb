@@ -1,3 +1,6 @@
+require './lib/listing.rb'
+require 'sinatra/flash'
+
 require 'sinatra/base'
 require './database_connection_setup'
 require './lib/user'
@@ -8,7 +11,23 @@ class MakersBnB < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @listings = Listing.all
     @user = User.find(id: session[:user_id])
+    erb :index
+  end
+
+  get '/listings/new' do
+    erb :'listings/new'
+  end
+
+  post '/listings' do
+    name = params[:name]
+    description = params[:description]
+    price = params[:price]
+    Listing.create(name: params[:name], description: params[:description], price: params[:price])
+    # connection = PG.connect(dbname: 'makers_bnb_test')
+    # connection.exec("INSERT INTO listings (name, description, price) VALUES ('#{name}', '#{description}', '#{price}');")
+    flash[:notice] = "Your listing has been added" 
   end
 
   get '/signup' do
