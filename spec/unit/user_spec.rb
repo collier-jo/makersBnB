@@ -68,6 +68,13 @@ describe User do
 
         expect(authenticated_user).to be_nil
       end
+
+      it 'sets current user' do
+        user = User.create(username: 'username', email: 'email@email.com', password: 'test_password')
+        authenticated_user = User.authenticate(username: 'username',password: 'test_password')
+
+        expect(User.current_user).to eq authenticated_user
+      end
     end
 
     describe '.current_user' do

@@ -49,6 +49,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/sessions/new' do
+    p session[:user_id]
     erb :'/sessions/new'
   end
 
