@@ -11,10 +11,12 @@ class MakersBnB < Sinatra::Base
   get '/' do
     @listings = Listing.all
     @user = User.find(id: session[:user_id])
+    flash[:signout] = "You must be signed in before adding a new listing"
     erb :index
   end
 
   get '/listings/new' do
+    redirect '/' if User.current_user == nil
     erb :'listings/new'
   end
 
@@ -66,6 +68,7 @@ class MakersBnB < Sinatra::Base
 
   post '/sessions/destroy' do
     session.clear
+    User.sign_out
     flash[:notice] = 'You have signed out!'
     redirect '/'
   end
