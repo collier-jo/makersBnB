@@ -8,7 +8,7 @@
 <body>
   <div class="container">
     <h1>Welcome to MakersBnB</h1>
-      <%= flash[:notice] %>
+      <%= flash[:signout] %>
       <%# <%= flash[:welcome_user] %> %>
 
     <form action="/sessions/destroy" method="post">
@@ -22,6 +22,7 @@
     <form action='/listings/new'>
       <input type="submit" value="Add Listing"/>
     </form>
+    <%= flash[:notice] %>
     <p>
       <ul>
         <% @listings.each do |listing| %>
