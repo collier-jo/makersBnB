@@ -31,13 +31,14 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/signup' do
-    flash[:notice] = "this username/email already exists"
+    flash[:warning] = "this username/email already exists"
     erb(:signup)
   end
 
   post '/register' do
     begin
-      user = User.create(email: params[:email], username: params[:username], password: params[:password])
+      user = User.create(email: params[:email], username: params[:username],
+        password: params[:password])
     rescue PG::UniqueViolation
       redirect '/signup'
     end
