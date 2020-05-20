@@ -18,9 +18,9 @@ class MakersBnB < Sinatra::Base
     erb :'listings/new'
   end
 
-
   get '/listings/:id/show' do
     p params
+    #@listing = Listing.find(id: params[:id])
     erb (:'listings/show') # I know this works now 
   end
 
