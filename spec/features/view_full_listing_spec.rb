@@ -11,8 +11,8 @@ feature 'Viewing the full listing' do
 
       expect(current_path).to eq "/listings/#{listing.id}/show"
 
-      expect(page).to have_content "House of Horrors A very scary house 69.85"
-      #expect(page).to have_button "Enquiry"
-      #expect(page).to have_content "Hello World!"
+      expect(page).to have_content "House of Horrors" 
+      expect(page).to have_content "A very scary house" 
+      expect(page).to have_content "69.85"
     end 
 end

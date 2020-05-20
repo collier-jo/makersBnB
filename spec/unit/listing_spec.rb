@@ -27,4 +27,17 @@ describe Listing do
       expect(listing.price).to include "50.00"
     end
   end
+
+  describe '.find' do 
+    it 'lets the user view listing in full' do
+      listing = Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
+
+      result = Listing.find(id: "#{listing.id}")
+
+      expect(result.id).to eq listing.id
+      expect(result.name).to eq "Village House"
+      expect(result.description).to eq "Lovely cottage in the countryside"
+      expect(result.price).to eq "50.00"
+    end 
+  end 
 end

@@ -20,8 +20,8 @@ class MakersBnB < Sinatra::Base
 
   get '/listings/:id/show' do
     p params
-    #@listing = Listing.find(id: params[:id])
-    erb (:'listings/show') # I know this works now 
+    @listing = Listing.find(id: params[:id])
+    erb (:'listings/show')
   end
 
   post '/listings' do
