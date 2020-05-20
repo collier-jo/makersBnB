@@ -1,7 +1,8 @@
 feature 'User sign up' do
   scenario 'A user can sign up' do
+    visit('/')
+    click_button('Sign Up')
     sign_up
-    # still needs expect(page).to have_content ...
   end
 
   scenario 'An email/username already exists' do
