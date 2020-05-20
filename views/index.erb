@@ -9,6 +9,15 @@
   <div class="container">
     <h1>Welcome to MakersBnB</h1>
       <%= flash[:notice] %>
+      <%# <%= flash[:welcome_user] %> %>
+
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" name="" value="Sign Out">
+    </form>
+
+    <form action="/sessions/new">
+      <input type="submit" name="" value="Sign In">
+    </form>
 
     <form action='/listings/new'>
       <input type="submit" value="Add Listing"/>
@@ -16,7 +25,12 @@
     <p>
       <ul>
         <% @listings.each do |listing| %>
-        <li><%= listing.name %> <%= listing.description %> <%= listing.price %></li>
+          <li class="listing" id="listing-<%= listing.id %>">
+            <%= listing.name %> <%= listing.description %> <%= listing.price %>
+            <form action="/listings/<%= listing.id %>/show" method="get">
+              <input type="submit" value="View" />
+            </form>
+          </li>
         <% end %>
       </ul>
     </p>

@@ -18,6 +18,12 @@ class MakersBnB < Sinatra::Base
     erb :'listings/new'
   end
 
+  get '/listings/:id/show' do
+    p params
+    #@listing = Listing.find(id: params[:id])
+    erb (:'listings/show') # I know this works now 
+  end
+
   post '/listings' do
     Listing.create(name: params[:name], description: params[:description], price: params[:price])
     flash[:notice] = "Your listing has been added"
@@ -37,6 +43,29 @@ class MakersBnB < Sinatra::Base
       redirect '/signup'
     end
     session[:user_id] = user.id
+    redirect '/'
+  end
+
+  get '/sessions/new' do
+    erb :'/sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(username: params[:username], password: params[:password])
+
+    if user
+      session[:user_id] = user.id
+      # flash[:welcome_user] = "Welcome #{user.username}!"
+      redirect '/'
+    else
+      flash[:notice] = 'Please check your username or password!'
+      redirect '/sessions/new'
+    end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out!'
     redirect '/'
   end
 
