@@ -32,8 +32,7 @@ describe Listing do
     end
 
   it 'accesses the user_id from the user table' do
-    user = User.create(username: 'username', email: 'email@email.com', password: 'test_password')
-    authenticated_user = User.authenticate(username: 'username',password: 'test_password')
+    user_sign_in
     listing = Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
     expect(listing.user_id).to eq(User.current_user.id)
   end
