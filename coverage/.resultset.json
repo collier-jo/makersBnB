@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/joannacollier/Documents/Coding/Makers/Course/W6/makersBnB/spec/database_connection_spec.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/database_connection_spec.rb": {
         "lines": [
           1,
           null,
@@ -23,7 +23,28 @@
           null
         ]
       },
-      "/Users/joannacollier/Documents/Coding/Makers/Course/W6/makersBnB/spec/features/create_listing_spec.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/features/create_listing_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/student/Desktop/makers/makersBnB/spec/features/sign_up_spec.rb": {
         "lines": [
           1,
           1,
@@ -35,25 +56,6 @@
           1,
           1,
           null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/joannacollier/Documents/Coding/Makers/Course/W6/makersBnB/spec/features/sign_up_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
           null,
           1,
           1,
@@ -71,7 +73,7 @@
           null
         ]
       },
-      "/Users/joannacollier/Documents/Coding/Makers/Course/W6/makersBnB/spec/features/signing_in_spec.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/features/signing_in_spec.rb": {
         "lines": [
           1,
           1,
@@ -117,7 +119,7 @@
           null
         ]
       },
-      "/Users/joannacollier/Documents/Coding/Makers/Course/W6/makersBnB/spec/features/signing_out_spec.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/features/signing_out_spec.rb": {
         "lines": [
           1,
           1,
@@ -139,7 +141,7 @@
           null
         ]
       },
-      "/Users/joannacollier/Documents/Coding/Makers/Course/W6/makersBnB/spec/features/view_full_listing_spec.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/features/view_full_listing_spec.rb": {
         "lines": [
           1,
           1,
@@ -161,7 +163,7 @@
           null
         ]
       },
-      "/Users/joannacollier/Documents/Coding/Makers/Course/W6/makersBnB/spec/features/viewing_listings_spec.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/features/viewing_listings_spec.rb": {
         "lines": [
           1,
           1,
@@ -201,7 +203,7 @@
           null
         ]
       },
-      "/Users/joannacollier/Documents/Coding/Makers/Course/W6/makersBnB/spec/unit/listing_spec.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/unit/listing_spec.rb": {
         "lines": [
           1,
           1,
@@ -248,7 +250,40 @@
           null
         ]
       },
-      "/Users/joannacollier/Documents/Coding/Makers/Course/W6/makersBnB/spec/unit/user_spec.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/unit/picture_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/student/Desktop/makers/makersBnB/lib/picture.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/student/Desktop/makers/makersBnB/spec/unit/user_spec.rb": {
         "lines": [
           1,
           1,
@@ -324,7 +359,7 @@
           null
         ]
       },
-      "/Users/joannacollier/Documents/Coding/Makers/Course/W6/makersBnB/spec/database_helpers.rb": {
+      "/Users/student/Desktop/makers/makersBnB/spec/database_helpers.rb": {
         "lines": [
           1,
           null,
@@ -335,6 +370,6 @@
         ]
       }
     },
-    "timestamp": 1589981065
+    "timestamp": 1589994655
   }
 }
