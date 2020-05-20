@@ -6,6 +6,7 @@ feature 'Viewing the full listing' do
     
       expect(page).to have_content "House of Horrors A very scary house 69.85"
   
+
       first('.listing').click_button 'View'
 
       expect(current_path).to eq "/listings/#{listing.id}/show"

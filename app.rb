@@ -45,5 +45,28 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
+  get '/sessions/new' do
+    erb :'/sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(username: params[:username], password: params[:password])
+
+    if user
+      session[:user_id] = user.id
+      # flash[:welcome_user] = "Welcome #{user.username}!"
+      redirect '/'
+    else
+      flash[:notice] = 'Please check your username or password!'
+      redirect '/sessions/new'
+    end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out!'
+    redirect '/'
+  end
+
   run! if app_file == $0
 end
