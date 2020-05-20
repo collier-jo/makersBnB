@@ -1,4 +1,5 @@
 require 'listing'
+require './lib/user.rb'
 require 'database_helpers'
 
 describe Listing do
@@ -29,5 +30,12 @@ describe Listing do
       expect(listing.description).to include "Lovely cottage in the countryside"
       expect(listing.price).to include "50.00"
     end
+
+  it 'accesses the user_id from the user table' do
+    user = User.create(username: 'username', email: 'email@email.com', password: 'test_password')
+    authenticated_user = User.authenticate(username: 'username',password: 'test_password')
+    listing = Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
+    expect(listing.user_id).to eq(User.current_user.id)
   end
+end
 end
