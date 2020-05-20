@@ -21,7 +21,7 @@ class MakersBnB < Sinatra::Base
   get '/listings/:id/show' do
     p params
     #@listing = Listing.find(id: params[:id])
-    erb (:'listings/show') # I know this works now 
+    erb (:'listings/show') # I know this works now
   end
 
   post '/listings' do
@@ -47,6 +47,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/sessions/new' do
+    p session[:user_id]
     erb :'/sessions/new'
   end
 
