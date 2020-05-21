@@ -12,7 +12,7 @@ class MakersBnB < Sinatra::Base
   get '/' do
     @listings = Listing.all
     @user = User.find(id: session[:user_id])
-    # flash[:welcome_user] = "Welcome #{@user}!" unless User.current_user == nil
+    # flash[:welcome_user] = "Registration successful. Please sign in!"
     erb :index
   end
 

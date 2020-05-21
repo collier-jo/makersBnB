@@ -19,6 +19,7 @@
       <input type="submit" name="" value="Sign In">
     </form>
     <% else %>
+    <h3>Welcome <%= User.current_user.username %></h3>
     <form action="/sessions/destroy" method="post">
       <input type="submit" name="" value="Sign Out">
     </form>
