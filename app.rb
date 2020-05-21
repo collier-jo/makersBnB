@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require 'sinatra/base'
 require './database_connection_setup'
 require './lib/user'
+require './lib/picture'
 
 class MakersBnB < Sinatra::Base
   enable :sessions
@@ -22,12 +23,13 @@ class MakersBnB < Sinatra::Base
 
   get '/listings/:id/show' do
     p params
-    #@listing = Listing.find(id: params[:id])
-    erb (:'listings/show') # I know this works now
+    @listing = Listing.find(id: params[:id])
+    erb (:'listings/show')
   end
 
   post '/listings' do
-    Listing.create(name: params[:name], description: params[:description], price: params[:price])
+    listing = Listing.create(name: params[:name], description: params[:description], price: params[:price])
+    Picture.create(url: params[:picture_url], listing_id: listing.id)
     flash[:notice] = "Your listing has been added"
     redirect '/'
   end

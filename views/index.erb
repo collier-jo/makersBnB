@@ -10,7 +10,6 @@
     <h1>Welcome to MakersBnB</h1>
       <%= flash[:signout] %>
       <%# <%= flash[:welcome_user] %> %>
-
     <form action="/signup">
       <input type="submit" name="" value="Sign Up">
     </form>
@@ -31,10 +30,15 @@
       <ul>
         <% @listings.each do |listing| %>
           <li class="listing" id="listing-<%= listing.id %>">
-            <%= listing.name %> <%= listing.description %> <%= listing.price %>
-            <form action="/listings/<%= listing.id %>/show" method="get">
-              <input type="submit" value="View" />
-            </form>
+            <div class="">
+              <%= listing.name %> <%= listing.description %> <%= listing.price %>
+              <% listing.pictures.each do |picture| %>
+                <img src="<%= picture['url'] %>" alt="">
+              <% end %>
+              <form action="/listings/<%= listing.id %>/show" method="get">
+                <input type="submit" value="View" />
+              </form>
+            </div>
           </li>
         <% end %>
       </ul>
