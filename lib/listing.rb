@@ -35,4 +35,8 @@ class Listing
   def pictures
     DatabaseConnection.query("SELECT * FROM pictures WHERE listing_id = '#{id}';")
   end
+
+  def available_dates 
+    DatabaseConnection.query("SELECT * FROM available_dates WHERE listing_id = '#{id}';")
+  end 
 end

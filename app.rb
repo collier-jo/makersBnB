@@ -4,6 +4,7 @@ require 'sinatra/base'
 require './database_connection_setup'
 require './lib/user'
 require './lib/picture'
+require './lib/availability'
 
 class MakersBnB < Sinatra::Base
   enable :sessions
@@ -24,13 +25,15 @@ class MakersBnB < Sinatra::Base
   get '/listings/:id/show' do
     p params
     @listing = Listing.find(id: params[:id])
+    @unicorn = @listing.available_dates
     erb (:'listings/show')
   end
 
   post '/listings' do
+    p params
     listing = Listing.create(name: params[:name], description: params[:description], price: params[:price])
     Picture.create(url: params[:picture_url], listing_id: listing.id)
-    Availability.create(listing_id: listing.id, date_start: params[:date_start], date_end: params[:date_end])
+    Available_Dates.create(listing_id: listing.id, date_start: params[:date_start], date_end: params[:date_end])
     flash[:notice] = "Your listing has been added"
     redirect '/'
   end

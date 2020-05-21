@@ -10,8 +10,8 @@ feature 'Create Listing' do
     fill_in :description, with: 'A really fun place on the surface of the sun'
     fill_in :price, with: '100.00'
     fill_in :picture_url, with: 'https://live.staticflickr.com/4159/33385628794_b912df519b_m.jpg'
-    fill_in :date_start, with: '10/10/2020'
-    fill_in :date_end, with: '10/11/2020'
+    fill_in :date_start, with: '2020-05-04'
+    fill_in :date_end, with: '2020-05-05'
     click_button 'Submit'
 
     expect(current_path).to eq '/'
@@ -21,7 +21,7 @@ feature 'Create Listing' do
 
     first('.listing').click_button 'View'
     
-    expect(page).to have_content '10/10/2020'
-    expect(page).to have_content '11/10/2020'
+    expect(page).to have_content '2020-05-04'
+    expect(page).to have_content '2020-05-05'
   end
 end
