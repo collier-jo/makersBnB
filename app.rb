@@ -12,7 +12,7 @@ class MakersBnB < Sinatra::Base
   get '/' do
     @listings = Listing.all
     @user = User.find(id: session[:user_id])
-    flash[:signout] = "You must be signed in before adding a new listing"
+    # flash[:welcome_user] = "Welcome #{@user}!" unless User.current_user == nil
     erb :index
   end
 
