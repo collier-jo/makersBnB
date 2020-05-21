@@ -7,6 +7,9 @@
 </head>
 <body>
   <div class="container">
+    <% if User.current_user %>
+      <a href="/users/<%= User.current_user.username %>/user"><p>My Account</p></a>
+    <% end %>
     <h1>Welcome to MakersBnB</h1>
       <%= flash[:signout] %>
       <%= flash[:welcome_user] %>

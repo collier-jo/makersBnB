@@ -28,35 +28,47 @@
 * A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
 * Basic payment implementation though Stripe.
 
-# MVP 
+# MVP
 
-Owner can list one or more spaces. / 
+Owner can list one or more spaces. /
 Owner can add space with name, description and ppn. /
 Owner should be able to offer a range of dates where their space is available.
 
 Holiday maker can view spaces. /
 Holiday maker can click on individual space for more information. /
-Holiday maker can click on individual space to make enquiry 
+Holiday maker can click on individual space to make enquiry
 
 # User Stories
 
 As a user, so I can sign up
 I would like a sign up page to store name, pwd, email
 
-As a user, so i can see all the listings, 
+As a user, so i can see all the listings,
 I would like to see a list of all spaces
 
-As a user, so I can post my space(s), 
-I would like to submit my listing with a name, description, ppn and dates 
+As a user, so I can post my space(s),
+I would like to submit my listing with a name, description, ppn and dates
 
 As a user, so I can see more information on the space,
 I would like to click on a specific listing
 
-As a user, so I can make an enquiry, 
+As a user, so I can make an enquiry,
 I would like to email the space owner
 
+As a user, so I can see my account info,
+I want to be able to visit my profile page
+
+As a user, so I can view all my listings,
+I want to be able to see all profile page
+
+As a user, so I can make changes to my listings,
+I want to be able to edit my listings
+
+As a user, so I can make remove a listing,
+I want to be able to delete it from my profile page
+
 # Domain Model
-Object 	| Message 
+Object 	| Message
 Listing		| .initialize
 			Name
 			Description
@@ -64,7 +76,7 @@ Listing		| .initialize
 		| .all **
 		| .create **
 		| .update
-		| .delete 
+		| .delete
 		| .find
 
 User 	| .all
@@ -74,14 +86,14 @@ User 	| .all
 # CRC
 
 Database:
-makers_bnb 
+makers_bnb
 makers_bnb_test
 
 
 Tables:
 Listings: id primary key / foreign key(user id)/ name/ description/ price
 User table: id primary / name/ username/ email/ password
-Dates table?: 
+Dates table?:
 Domain
 
 
@@ -89,8 +101,3 @@ Domain
 (i.e. stand-ups/ pull requests/ retros)
 
 =======
-
-
-
-
-

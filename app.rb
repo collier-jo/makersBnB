@@ -34,6 +34,11 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
+  get "/users/:username/user" do
+    p params
+    erb :'/users/user'
+  end
+
   get '/signup' do
     flash[:warning] = "this username/email already exists"
     erb(:signup)
