@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require 'sinatra/base'
 require './database_connection_setup'
 require './lib/user'
+require './lib/picture'
 
 class MakersBnB < Sinatra::Base
   enable :sessions
@@ -11,7 +12,6 @@ class MakersBnB < Sinatra::Base
   get '/' do
     @listings = Listing.all
     @user = User.find(id: session[:user_id])
-    # @picture = Picture.find(listing_id: @listings.id)
     erb :index
   end
 
@@ -26,8 +26,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listings' do
-    Listing.create(name: params[:name], description: params[:description], price: params[:price])
-    Picture.create(url: params[:picture_url])
+    listing = Listing.create(name: params[:name], description: params[:description], price: params[:price])
+    Picture.create(url: params[:picture_url], listing_id: listing.id)
     flash[:notice] = "Your listing has been added"
     redirect '/'
   end

@@ -247,6 +247,17 @@
           1,
           null,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -258,27 +269,15 @@
           1,
           1,
           1,
-          null,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/student/Desktop/makers/makersBnB/lib/picture.rb": {
-        "lines": [
           1,
           null,
           1,
-          null,
           1,
-          2,
-          2,
           null,
           null,
-          1,
-          2,
-          2,
+          null,
+          null,
+          null,
           null,
           null
         ]
@@ -370,6 +369,6 @@
         ]
       }
     },
-    "timestamp": 1589994655
+    "timestamp": 1590054948
   }
 }
