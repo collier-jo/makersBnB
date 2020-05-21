@@ -1,6 +1,9 @@
 feature 'Create Listing' do
   scenario 'a user can submit a listing to website' do
-    visit '/listings/new'
+    user = User.create(username: 'username', email: 'email@email.com', password: 'test_password')
+    authenticated_user = User.authenticate(username: 'username',password: 'test_password')
+    visit '/'
+    click_button "Add Listing"
 
     expect(page).to have_content 'Add new listing'
     fill_in('name', with: 'Fun House')

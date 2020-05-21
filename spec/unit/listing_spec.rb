@@ -1,9 +1,11 @@
 require 'listing'
+require './lib/user.rb'
 require 'database_helpers'
 
 describe Listing do
   describe '.all' do
     it 'shows all the listings' do
+      user_sign_in
       listing = Listing.create(name: 'Minerva', description: 'A tiny house in the middle nowhere', price: '10.50')
       Listing.create(name: 'Boat House', description: 'A boat house on the shores of lake Loch Ness', price: '35.00')
 
@@ -20,6 +22,7 @@ describe Listing do
 
   describe '.create' do
     it 'lets a user create a new listing' do
+      user_sign_in
       listing = Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
       persisted_data = persisted_data(table: :listings, id: listing.id)
 
@@ -29,5 +32,11 @@ describe Listing do
       expect(listing.description).to include "Lovely cottage in the countryside"
       expect(listing.price).to include "50.00"
     end
+
+  it 'accesses the user_id from the user table' do
+    user_sign_in
+    listing = Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
+    expect(listing.user_id).to eq(User.current_user.id)
   end
+end
 end
