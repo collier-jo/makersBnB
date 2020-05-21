@@ -4,7 +4,7 @@ class Listing
 
   attr_reader :id, :name, :description, :price, :user_id
 
-  def initialize(id:, name:, description:, price:, user_id:)
+  def initialize(id:, name:, description:, price:, user_id: "view only")
     @id = id
     @name = name
     @description = description
