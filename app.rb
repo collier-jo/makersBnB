@@ -6,7 +6,7 @@ require './lib/user'
 require './lib/picture'
 
 class MakersBnB < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
   register Sinatra::Flash
 
   get '/' do
@@ -39,6 +39,15 @@ class MakersBnB < Sinatra::Base
     @user = User.current_user
     @listings = @user.listings
     erb :'/users/user'
+  end
+
+  get "/listings/:id/edit" do
+    @listing_id = params[:id]
+    erb :'listings/edit'
+  end
+
+  patch '/listings/:id' do
+    redirect "/users/:username/user"
   end
 
   get '/signup' do
