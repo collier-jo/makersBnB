@@ -30,6 +30,7 @@ class MakersBnB < Sinatra::Base
   post '/listings' do
     listing = Listing.create(name: params[:name], description: params[:description], price: params[:price])
     Picture.create(url: params[:picture_url], listing_id: listing.id)
+    Availability.create(listing_id: listing.id, date_start: params[:date_start], date_end: params[:date_end])
     flash[:notice] = "Your listing has been added"
     redirect '/'
   end
