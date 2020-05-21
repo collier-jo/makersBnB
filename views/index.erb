@@ -28,7 +28,9 @@
           <li class="listing" id="listing-<%= listing.id %>">
             <div class="">
               <%= listing.name %> <%= listing.description %> <%= listing.price %>
-              <%# <img src="<% @picture.url %>" alt=""> %>
+              <% listing.pictures.each do |picture| %>
+                <img src="<%= picture['url'] %>" alt="">
+              <% end %>
               <form action="/listings/<%= listing.id %>/show" method="get">
                 <input type="submit" value="View" />
               </form>

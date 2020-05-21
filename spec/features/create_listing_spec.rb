@@ -12,6 +12,6 @@ feature 'Create Listing' do
     expect(current_path).to eq '/'
     expect(page).to have_content 'Your listing has been added'
     expect(page).to have_content 'Fun House A really fun place on the surface of the sun 100.00'
-    expect(page).to have_content 'https://live.staticflickr.com/4159/33385628794_b912df519b_m.jpg'
+    expect(page).to have_css "img[src='https://live.staticflickr.com/4159/33385628794_b912df519b_m.jpg']"
   end
 end

@@ -10,8 +10,4 @@ describe Picture do
       expect(picture.url).to eq 'https://live.staticflickr.com/4159/33385628794_b912df519b_m.jpg'
     end
   end
-
-  # describe '.find' do
-  #   it ''
-  # end
 end
