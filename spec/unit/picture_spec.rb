@@ -1,8 +1,10 @@
 require 'picture'
+require 'database_helpers'
 
 describe Picture do
   describe '.create' do
     it 'submits a picture url to the database' do
+      user_sign_in
       listing = Listing.create(name: 'Minerva', description: 'A really fun place on the surface of the sun', price: '25.00')
       picture = Picture.create(url: 'https://live.staticflickr.com/4159/33385628794_b912df519b_m.jpg', listing_id: "#{listing.id}")
 

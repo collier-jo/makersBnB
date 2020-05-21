@@ -41,6 +41,7 @@ describe Listing do
 
   describe '.find' do
     it 'lets the user view listing in full' do
+      user_sign_in
       listing = Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
 
       result = Listing.find(id: "#{listing.id}")
@@ -54,6 +55,7 @@ describe Listing do
 
   describe '#pictures' do
     it 'integrates pictures to the listing' do
+      user_sign_in
       listing = Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
       Picture.create(url: 'https://live.staticflickr.com/4159/33385628794_b912df519b_m.jpg', listing_id: "#{listing.id}")
 
