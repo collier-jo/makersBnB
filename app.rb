@@ -36,6 +36,8 @@ class MakersBnB < Sinatra::Base
 
   get "/users/:username/user" do
     p params
+    @user = User.current_user
+    @listings = @user.listings
     erb :'/users/user'
   end
 
