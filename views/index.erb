@@ -8,23 +8,27 @@
 <body>
   <div class="container">
     <h1>Welcome to MakersBnB</h1>
-      <%= flash[:signout] %>
       <%= flash[:welcome_user] %>
+
+    <% if User.current_user == nil %>
     <form action="/signup">
       <input type="submit" name="" value="Sign Up">
-    </form>
-
-    <form action="/sessions/destroy" method="post">
-      <input type="submit" name="" value="Sign Out">
     </form>
 
     <form action="/sessions/new">
       <input type="submit" name="" value="Sign In">
     </form>
+    <% else %>
+    <h3>Welcome <%= User.current_user.username %></h3>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" name="" value="Sign Out">
+    </form>
 
     <form action='/listings/new'>
       <input type="submit" value="Add Listing"/>
     </form>
+    <% end %>
+
     <%= flash[:notice] %>
     <p>
       <ul>
