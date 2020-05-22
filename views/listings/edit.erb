@@ -9,6 +9,6 @@
   <label for="description">Description</label>
   <textarea name="description" rows="8" cols="80"><%= @listing.description %></textarea>
   <label for="url">Add pictures</label>
-  <input type="url" name="url" value="">
+  <input type="url" name="url" value="<%= @listing.pictures.first['url'] %>" required>
   <input type="submit" name="" value="Update">
 </form>
