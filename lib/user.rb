@@ -44,4 +44,8 @@ class User
   def self.current_user
     @@current_user
   end
+
+  def view_bookings
+    DatabaseConnection.query("SELECT * FROM bookings WHERE user_id = '#{id}';")
+  end
 end

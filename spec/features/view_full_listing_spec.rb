@@ -17,5 +17,5 @@ feature 'Viewing the full listing' do
       expect(page).to have_content "House of Horrors"
       expect(page).to have_content "A very scary house"
       expect(page).to have_content "69.85"
-    end
+end
 end

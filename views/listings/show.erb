@@ -1,23 +1,25 @@
 
 <div class="container">
   <h1> <%= @listing.name %></h1>
-    <p> 
+    <p>
       <%= @listing.description %>
     </p>
     <p>
-      <%= @listing.price %> 
+      <%= @listing.price %>
     </p>
-    <p> 
+    <p>
       <% @unicorn.each do |x| %>
         <%= x["date_start"] %>
       <% end %>
     </p>
-    <p> 
+    <p>
       <% @unicorn.each do |x| %>
         <%= x["date_end"] %>
       <% end %>
     </p>
 
-</div>
+     <form action="/booking/<%= @listing.id %>/book" method="get">
+     <input type="submit" value="Book"/>
+     </form>
 
- 
+</div>

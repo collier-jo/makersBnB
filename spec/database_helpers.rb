@@ -8,4 +8,4 @@ end
 def user_sign_in
   user = User.create(username: 'username', email: 'email@email.com', password: 'test_password')
   authenticated_user = User.authenticate(username: 'username',password: 'test_password')
-end  
+end

@@ -16,7 +16,7 @@ class Listing
     result = DatabaseConnection.query("SELECT * FROM listings;")
     result.map do |listing|
       Listing.new(id: listing['id'], name: listing['name'],
-        description: listing['description'], price: listing['price'])
+        description: listing['description'], price: listing['price'], user_id: listing['user_id'])
     end
   end
 
@@ -29,14 +29,19 @@ class Listing
 
   def self.find(id:)
     result = DatabaseConnection.query("SELECT * FROM listings WHERE id = '#{id}'")
-    Listing.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'])
+    Listing.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'],
+    user_id: result[0]['user_id'])
   end
 
   def pictures
     DatabaseConnection.query("SELECT * FROM pictures WHERE listing_id = '#{id}';")
   end
 
-  def available_dates 
+  def available_dates
     DatabaseConnection.query("SELECT * FROM available_dates WHERE listing_id = '#{id}';")
-  end 
+  end
+
+  def booked_dates
+    DatabaseConnection.query("SELECT * FROM bookings WHERE listing_id = '#{id}';")
+  end
 end
