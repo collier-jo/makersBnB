@@ -22,7 +22,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listings/:id/show' do
-    p params
+    # p params
     @listing = Listing.find(id: params[:id])
     erb (:'listings/show')
   end
@@ -35,7 +35,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get "/users/:username/user" do
-    p params
+    # p params
     @user = User.current_user
     @listings = @user.listings
     erb :'/users/user'
@@ -52,7 +52,7 @@ class MakersBnB < Sinatra::Base
 
   get '/signup' do
     flash[:warning] = "this username/email already exists"
-    erb(:signup)
+    erb :signup
   end
 
   post '/register' do
@@ -67,7 +67,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/sessions/new' do
-    p session[:user_id]
+    # p session[:user_id]
     erb :'/sessions/new'
   end
 
