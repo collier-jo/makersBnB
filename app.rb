@@ -27,6 +27,8 @@ class MakersBnB < Sinatra::Base
     p params
     @listing = Listing.find(id: params[:id])
     @unicorn = @listing.available_dates
+    @user = User.find(id: @listing.user_id)
+
     erb (:'listings/show')
   end
 
@@ -39,29 +41,7 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
-  get '/listings/:id/enquiry' do
-    @listing_id = params[:id]
-    erb (:'listings/enquiry')
-  end
 
-  post '/listings/:id/enquiry' do
-    @listing_id = params[:id]
-    @listing = Listing.find(id: @listing_id) #instance of listing 
-    @listing_owner_id = @listing.user_id #user ID of owns the listing 
-    @listing_owner = User.find(id: @listing_owner_id)
-    @listing_owner_email = @listing_owner.email
-    @enquiry_user = User.current_user.email
-    @enquiry_user_email = @enquiry_user.email 
-    #user id making enquire /// user id of listing owner 
-
-    Enquiry.create(subject: params[:subject_line], body: params[:body], to: "#{@listing_owner_email}", from: @enquiry_user_email)
-    redirect "/listings/#{@listing_id}/enquiry_confirmation"
-  end
-
-  get '/listings/:id/enquiry_confirmation' do
-    @listing_id = params[:id]
-    erb (:'listings/enquiry_confirmation')
-  end
 
   get '/signup' do
     flash[:warning] = "this username/email already exists"
@@ -121,3 +101,30 @@ class MakersBnB < Sinatra::Base
 
   run! if app_file == $0
 end
+
+
+
+
+# get '/listings/:id/enquiry' do
+  #   @listing_id = params[:id]
+  #   erb (:'listings/enquiry')
+  # end
+
+  # post '/listings/:id/enquiry' do
+  #   # @listing_id = params[:id]
+  #   # @listing = Listing.find(id: @listing_id) #instance of listing 
+  #   # @listing_owner_id = @listing.user_id #user ID of owns the listing 
+  #   # @listing_owner = User.find(id: @listing_owner_id)
+  #   # @listing_owner_email = @listing_owner.email
+  #   # @enquiry_user = User.current_user.email
+  #   # @enquiry_user_email = @enquiry_user.email 
+  #   #user id making enquire /// user id of listing owner 
+
+  #   #Enquiry.create(subject: params[:subject_line], body: params[:body], to: "#{@listing_owner_email}", from: @enquiry_user_email)
+  #   redirect "/listings/#{@listing_id}/enquiry_confirmation"
+  # end
+
+  # get '/listings/:id/enquiry_confirmation' do
+  #   @listing_id = params[:id]
+  #   erb (:'listings/enquiry_confirmation')
+  # end

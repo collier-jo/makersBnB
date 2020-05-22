@@ -10,7 +10,6 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
-require 'pony'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -27,9 +26,6 @@ RSpec.configure do |config|
   end
 end
 
-
-
-Pony.override_options = { :via => :test }
 
 
 # Mail.defaults do
