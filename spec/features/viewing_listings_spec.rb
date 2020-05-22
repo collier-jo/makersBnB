@@ -21,10 +21,12 @@ feature 'Viewing listings' do
 
     expect(current_path).to eq '/listings/new'
   end
+end
 
+feature 'Sign in' do
   scenario 'a user can sign in' do
     visit '/'
-
+    click_button 'Sign Out'
     expect(page).to have_button 'Sign In'
 
     click_button 'Sign In'

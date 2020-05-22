@@ -66,6 +66,7 @@ describe Listing do
       end
     end
 
+
     describe '#available_dates' do 
       it 'intergrates available dates to the listing' do 
         user_sign_in
@@ -78,4 +79,30 @@ describe Listing do
         expect(available["date_end"]).to eq "2020-05-05"
       end 
     end 
+
+  describe '.update' do
+    it 'updates a listing' do
+      user_sign_in
+      listing = Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
+      # Picture.create(url: 'https://live.staticflickr.com/4159/33385628794_b912df519b_m.jpg', listing_id: "#{listing.id}")
+
+      updated_listing = Listing.update(id: listing.id, name: 'Cat House', description: 'Big fun house', price: '35.00')
+
+      expect(updated_listing.id).to eq listing.id
+      expect(updated_listing.name).to eq 'Cat House'
+      expect(updated_listing.description).to eq 'Big fun house'
+      expect(updated_listing.price).to eq '35.00'
+    end
+  end
+
+  describe '.delete' do
+    it 'deletes user listings' do
+      user_sign_in
+      listing = Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
+
+      Listing.delete(id: listing.id)
+
+      expect(Listing.all.length).to eq 0
+    end
+  end
 end
