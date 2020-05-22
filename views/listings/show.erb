@@ -18,6 +18,9 @@
       <% end %>
     </p>
 
+
+    <p><a href="mailto:<%= @user.email %>">More questions? </a></p>
+
      <form action="/booking/<%= @listing.id %>/book" method="get">
      <input type="submit" value="Book"/>
      </form>
