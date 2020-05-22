@@ -13,16 +13,7 @@ feature 'enables user to make enquiry' do
     user = User.create(username: 'Unicorn', email: 'collj035@gmail.com', password: '1234')
     authenticated_user = User.authenticate(username: 'Unicorn',password: '1234')
     visit("/listings/#{listing.id}/show")
-
-    expect(page).to have_selector(:css, 'a[href="mailto:lizzieturney@gmail.com"]')
-    expect(page).to have_css 'a[href="mailto:lizzieturney@gmail.com"]'
-
-    # expect(current_path).to eq "/listings/#{listing.id}/enquiry"
-    # expect(page).to have_field "body"
-    # expect(page).to have_field "subject_line"
-    # expect(page).to have_button "Submit"
     
-    # click_button("Submit")
-    # expect(current_path).to eq "/listings/#{listing.id}/enquiry_confirmation"
+    expect(page).to have_css 'a[href="mailto:lizzieturney@gmail.com"]'
   end
 end
