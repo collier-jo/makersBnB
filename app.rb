@@ -47,6 +47,9 @@ class MakersBnB < Sinatra::Base
   end
 
   patch '/listings/:id' do
+    p "Patch #{params}"
+    listing = Listing.update(id: params[:id], name: params[:name], description: params[:description], price: params[:price])
+    Picture.update(url: params[:url], listing_id: listing.id)
     redirect "/users/:username/user"
   end
 
