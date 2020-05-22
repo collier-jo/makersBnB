@@ -4,6 +4,8 @@ require 'sinatra/base'
 require './database_connection_setup'
 require './lib/user'
 require './lib/picture'
+require './lib/availability'
+require './lib/booking'
 
 class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
@@ -24,12 +26,15 @@ class MakersBnB < Sinatra::Base
   get '/listings/:id/show' do
     # p params
     @listing = Listing.find(id: params[:id])
+    @unicorn = @listing.available_dates
     erb (:'listings/show')
   end
 
   post '/listings' do
+    # @user = User.find(id: session[:user_id])
     listing = Listing.create(name: params[:name], description: params[:description], price: params[:price])
     Picture.create(url: params[:picture_url], listing_id: listing.id)
+    Available_Dates.create(listing_id: listing.id, date_start: params[:date_start], date_end: params[:date_end])
     flash[:notice] = "Your listing has been added"
     redirect '/'
   end
@@ -100,6 +105,20 @@ class MakersBnB < Sinatra::Base
     User.sign_out
     flash[:notice] = 'You have signed out!'
     redirect '/'
+  end
+
+  get '/booking/:id/book' do
+    @listing
+    erb (:'booking/book')
+  end
+
+  post '/store_booking' do
+    # Booking.create(listing_id: listing.id, user_id: User.current_user.id, book_from: params[:book_from], book_to: params[:book_to])
+    redirect '/booking/confirmation'
+  end
+
+  get '/booking/confirmation' do
+    erb (:'/booking/confirmation')
   end
 
   run! if app_file == $0

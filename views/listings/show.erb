@@ -1,4 +1,4 @@
- <!-- <p> House of Horrors A very scary house 69.85 </p> -->
+
 <div class="container">
   <h1> <%= @listing.name %></h1>
     <p>
@@ -6,6 +6,22 @@
     </p>
     <p>
       <%= @listing.price %>
+    </p>
+    <p>
+      <% @unicorn.each do |x| %>
+        <%= x["date_start"] %>
+      <% end %>
+    </p>
+    <p>
+      <% @unicorn.each do |x| %>
+        <%= x["date_end"] %>
+      <% end %>
+    </p>
+
+     <form action="/booking/<%= @listing.id %>/book" method="get">
+     <input type="submit" value="Book"/>
+     </form>
+
     </p>
 
       <img src="<%  %>" alt="">
