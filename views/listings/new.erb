@@ -1,0 +1,19 @@
+
+<div id="container">
+  <h1>Add new listing</h1>
+  <form action="/listings" method="post">
+    <label for="name">Name of the location
+      <input type="text" name="name" placeholder="Max 60 characters" required/>
+    </label>
+    <label for="description">Tell us about your listing...
+      <input type="text" name="description" placeholder="Max 280 characters" required/>
+    </label>
+    <label for="price">Price per night
+      <input type="text" name="price" placeholder="£" required/>
+    </label>
+    <label for="picture_url">Show us your place
+      <input type="text" name="picture_url" value="" placeholder="Picture url">
+    </label>
+    <input type="submit" value="Submit"/>
+  </form>
+</div>

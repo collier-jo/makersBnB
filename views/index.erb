@@ -1,0 +1,52 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to MakersBnB</h1>
+      <%= flash[:welcome_user] %>
+
+    <% if User.current_user == nil %>
+    <form action="/signup">
+      <input type="submit" name="" value="Sign Up">
+    </form>
+
+    <form action="/sessions/new">
+      <input type="submit" name="" value="Sign In">
+    </form>
+    <% else %>
+    <h3>Welcome <%= User.current_user.username %></h3>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" name="" value="Sign Out">
+    </form>
+
+    <form action='/listings/new'>
+      <input type="submit" value="Add Listing"/>
+    </form>
+    <% end %>
+
+    <%= flash[:notice] %>
+    <p>
+      <ul>
+        <% @listings.each do |listing| %>
+          <li class="listing" id="listing-<%= listing.id %>">
+            <div class="">
+              <%= listing.name %> <%= listing.description %> <%= listing.price %>
+              <% listing.pictures.each do |picture| %>
+                <img src="<%= picture['url'] %>" alt="">
+              <% end %>
+              <form action="/listings/<%= listing.id %>/show" method="get">
+                <input type="submit" value="View" />
+              </form>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
+</body>
+</html>

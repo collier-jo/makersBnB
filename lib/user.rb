@@ -10,18 +10,38 @@ class User
     @username = username
   end
 
+  @@current_user = nil
+
   def self.create(email:, username:, password:)
     encrypted_password = BCrypt::Password.create(password)
 
     result = DatabaseConnection.query("INSERT INTO users (email, username, password)
-      VALUES('#{email}', '#{username}', '#{encrypted_password}' ) RETURNING id, email, username;")
+      VALUES('#{email}', '#{username}', '#{encrypted_password}') RETURNING id, email, username;")
 
     User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'])
   end
 
   def self.find(id:)
     return nil unless id
+
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id};")
+
     User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'])
+  end
+
+  def self.authenticate(username:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';")
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+
+    @@current_user = User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'])
+  end
+
+  def self.sign_out
+    @@current_user = nil
+  end
+
+  def self.current_user
+    @@current_user
   end
 end
