@@ -35,9 +35,10 @@ class MakersBnB < Sinatra::Base
   end
 
   get "/users/:username/user" do
-    # p params
+    p params
     @user = User.current_user
     @listings = @user.listings
+    session[:username] = @user.username
     erb :'/users/user'
   end
 
@@ -50,7 +51,7 @@ class MakersBnB < Sinatra::Base
     p "Patch #{params}"
     listing = Listing.update(id: params[:id], name: params[:name], description: params[:description], price: params[:price])
     Picture.update(url: params[:url], listing_id: listing.id)
-    redirect "/users/:username/user"
+    redirect "/users/#{session[:username]}/user"
   end
 
   get '/signup' do
