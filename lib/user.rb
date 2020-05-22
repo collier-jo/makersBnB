@@ -44,15 +44,16 @@ class User
   def self.current_user
     @@current_user
   end
-  
+
   def view_bookings
     DatabaseConnection.query("SELECT * FROM bookings WHERE user_id = '#{id}';")
-  end 
-  
+  end
+
   def listings
     result = DatabaseConnection.query("SELECT * FROM listings WHERE user_id = #{id};")
     result.map do |listing|
       Listing.new(id: listing['id'], name: listing['name'],
-        description: listing['description'], price: listing['price'])
-   end
+      description: listing['description'], price: listing['price'])
+    end
+  end
 end

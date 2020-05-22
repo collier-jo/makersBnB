@@ -6,6 +6,7 @@ require './lib/user'
 require './lib/picture'
 require './lib/availability'
 require './lib/booking'
+require './lib/database_connection.rb'
 
 class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
@@ -62,6 +63,7 @@ class MakersBnB < Sinatra::Base
 
   delete '/listings/:id' do
     Picture.delete(listing_id: params[:id])
+    DatabaseConnection.query("DELETE FROM available_dates WHERE listing_id = #{params[:id]};")
     Listing.delete(id: params[:id])
     redirect "/users/#{session[:username]}/user"
   end
