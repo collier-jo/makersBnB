@@ -2,5 +2,13 @@
 
 <form class="" action="/listings/<%= @listing_id %>/" method="post">
   <input type="hidden" name="_method" value="PATCH">
-  <input type="text" name="" value="" placeholder="">
+  <label for="name">Location name</label>
+  <input type="text" name="name" value="" placeholder="" required>
+  <label for="price">Price per night</label>
+  <input type="text" name="price" value="" placeholder="" required>
+  <label for="description">Description</label>
+  <textarea name="description" rows="8" cols="80"></textarea>
+  <label for="url">Add pictures</label>
+  <input type="url" name="url" value="">
+  <input type="submit" name="" value="Update">
 </form>
