@@ -1,0 +1,28 @@
+<form action="/">
+  <input type="submit" name="" value="Home">
+</form>
+
+<h1>Account Info</h1>
+
+<p><%= @user.username %></p>
+<p><%= @user.email %></p>
+
+<div class="">
+  <% @listings.each do |listing|%>
+  <div class="listing">
+    <p><%= listing.name %></p>
+    <p><%= listing.description %></p>
+    <p><%= listing.price %></p>
+    <% listing.pictures.each do |picture| %>
+      <img src="<%= picture["url"] %>" alt="">
+    <% end %>
+    <form action="/listings/<%= listing.id %>/edit">
+      <input type="submit" name="" value="Edit">
+    </form>
+    <form action="/listings/<%= listing.id %>" method="post"> 
+      <input type='hidden' name='_method' value='DELETE'/> 
+      <input type="submit" value="Delete" /> 
+    </form>
+  </div>
+  <% end %>
+</div>

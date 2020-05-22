@@ -85,13 +85,26 @@ describe User do
         expect(User.current_user).to eq authenticated_user
       end
 
-    it 'resets current user after sign out' do
+      it 'resets current user after sign out' do
+        user = User.create(username: 'username', email: 'email@email.com', password: 'test_password')
+        authenticated_user = User.authenticate(username: 'username',password: 'test_password')
+        User.sign_out
+
+        expect(User.current_user).to eq nil
+      end
+    end
+
+  describe '#listings' do
+    it 'gets a array of all listings of a particular user' do
       user = User.create(username: 'username', email: 'email@email.com', password: 'test_password')
       authenticated_user = User.authenticate(username: 'username',password: 'test_password')
-      User.sign_out
+      listing = Listing.create(name: 'Boat House', description: 'A boat house on the shores of lake Loch Ness', price: '35.00')
+      listings = authenticated_user.listings
 
-      expect(User.current_user).to eq nil
-
+      expect(listings.length).to eq (1)
+      expect(listings.first.name).to eq("Boat House")
+      expect(listings.first.description).to eq("A boat house on the shores of lake Loch Ness")
+      expect(listings.first.price).to eq("35.00")
     end
   end
 end

@@ -32,6 +32,15 @@ class Listing
     Listing.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'])
   end
 
+  def self.update(id:, name:, description:, price:)
+    result = DatabaseConnection.query("UPDATE listings SET name = '#{name}', description = '#{description}', price = '#{price}' WHERE id = '#{id}' RETURNING id, name, description, price;")
+    Listing.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'])
+  end
+
+  def self.delete(id:)
+    DatabaseConnection.query("DELETE FROM listings WHERE id = #{id};")
+  end
+
   def pictures
     DatabaseConnection.query("SELECT * FROM pictures WHERE listing_id = '#{id}';")
   end

@@ -6,7 +6,7 @@ require './lib/user'
 require './lib/picture'
 
 class MakersBnB < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
   register Sinatra::Flash
 
   get '/' do
@@ -22,7 +22,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listings/:id/show' do
-    p params
+    # p params
     @listing = Listing.find(id: params[:id])
     erb (:'listings/show')
   end
@@ -34,9 +34,36 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
+  get "/users/:username/user" do
+    p params
+    @user = User.current_user
+    @listings = @user.listings
+    session[:username] = @user.username
+    erb :'/users/user'
+  end
+
+  get "/listings/:id/edit" do
+    @listing_id = params[:id]
+    @listing = Listing.find(id: @listing_id)
+    erb :'listings/edit'
+  end
+
+  patch '/listings/:id' do
+    p "Patch #{params}"
+    listing = Listing.update(id: params[:id], name: params[:name], description: params[:description], price: params[:price])
+    Picture.update(url: params[:url], listing_id: listing.id)
+    redirect "/users/#{session[:username]}/user"
+  end
+
+  delete '/listings/:id' do
+    Picture.delete(listing_id: params[:id])
+    Listing.delete(id: params[:id])
+    redirect "/users/#{session[:username]}/user"
+  end
+
   get '/signup' do
     flash[:warning] = "this username/email already exists"
-    erb(:signup)
+    erb :signup
   end
 
   post '/register' do
@@ -51,7 +78,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/sessions/new' do
-    p session[:user_id]
+    # p session[:user_id]
     erb :'/sessions/new'
   end
 

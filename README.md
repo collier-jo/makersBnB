@@ -70,6 +70,18 @@ I would like to click on a specific listing
 As a user, so I can make an enquiry,
 I would like to email the space owner
 
+As a user, so I can see my account info,
+I want to be able to visit my profile page
+
+As a user, so I can view all my listings,
+I want to be able to see all profile page
+
+As a user, so I can make changes to my listings,
+I want to be able to edit my listings
+
+As a user, so I can make remove a listing,
+I want to be able to delete it from my profile page
+
 # Domain Model
 Object 	| Message
 Listing		| .initialize
