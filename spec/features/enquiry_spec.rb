@@ -21,6 +21,9 @@ feature 'enables user to make enquiry' do
     expect(page).to have_field "body"
     expect(page).to have_field "subject_line"
     expect(page).to have_button "Submit"
-    expect(current_path).to eq "/listings/enquiry_confirmation"
+    
+    click_button("Submit")
+    
+    expect(current_path).to eq "/listings/#{listing.id}/enquiry_confirmation"
   end
 end

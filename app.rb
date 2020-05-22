@@ -46,10 +46,10 @@ class MakersBnB < Sinatra::Base
 
   post '/listings/:id/enquiry' do
     @listing_id = params[:id]
-    redirect "/listings/enquiry_confirmation"
+    redirect "/listings/#{@listing_id}/enquiry_confirmation"
   end
 
-  get '/listings/enquiry_confirmation' do
+  get '/listings/:id/enquiry_confirmation' do
     @listing_id = params[:id]
     erb (:'listings/enquiry_confirmation')
   end
