@@ -13,4 +13,5 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'sinatra-flash'
+  gem install bootstrap -v 4.5.0
 end
