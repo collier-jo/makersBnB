@@ -79,5 +79,16 @@ describe Listing do
       expect(updated_listing.price).to eq '35.00'
     end
   end
+
+  describe '.delete' do
+    it 'deletes user listings' do
+      user_sign_in
+      listing = Listing.create(name: 'Village House', description: 'Lovely cottage in the countryside', price: '50.00')
+
+      Listing.delete(id: listing.id)
+
+      expect(Listing.all.length).to eq 0
+    end
+  end
 end
 end
