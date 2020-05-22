@@ -18,6 +18,11 @@
       <% end %>
     </p>
 
+    <form action="/listings/<%= @listing.id %>/enquiry" method="get">
+    <input type="submit" value="Enquiry"/>
+    </form>
+
+
      <form action="/booking/<%= @listing.id %>/book" method="get">
      <input type="submit" value="Book"/>
      </form>

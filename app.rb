@@ -39,6 +39,21 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
+  get '/listings/:id/enquiry' do
+    @listing_id = params[:id]
+    erb (:'listings/enquiry')
+  end
+
+  post '/listings/:id/enquiry' do
+    @listing_id = params[:id]
+    redirect "/listings/enquiry_confirmation"
+  end
+
+  get '/listings/enquiry_confirmation' do
+    @listing_id = params[:id]
+    erb (:'listings/enquiry_confirmation')
+  end
+
   get '/signup' do
     flash[:warning] = "this username/email already exists"
     erb(:signup)
@@ -79,6 +94,7 @@ class MakersBnB < Sinatra::Base
     flash[:notice] = 'You have signed out!'
     redirect '/'
   end
+
 
   get '/booking/:id/book' do
     @listing
