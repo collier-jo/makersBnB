@@ -55,6 +55,12 @@ class MakersBnB < Sinatra::Base
     redirect "/users/#{session[:username]}/user"
   end
 
+  delete '/listings/:id' do
+    Picture.delete(listing_id: params[:id])
+    Listing.delete(id: params[:id])
+    redirect "/users/#{session[:username]}/user"
+  end
+
   get '/signup' do
     flash[:warning] = "this username/email already exists"
     erb :signup

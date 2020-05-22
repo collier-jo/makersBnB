@@ -19,6 +19,10 @@
     <form action="/listings/<%= listing.id %>/edit">
       <input type="submit" name="" value="Edit">
     </form>
+    <form action="/listings/<%= listing.id %>" method="post"> 
+      <input type='hidden' name='_method' value='DELETE'/> 
+      <input type="submit" value="Delete" /> 
+    </form>
   </div>
   <% end %>
 </div>
