@@ -89,6 +89,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   capybara
+  mail
   pg
   pony
   rspec

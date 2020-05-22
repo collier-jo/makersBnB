@@ -6,6 +6,7 @@ gem 'pg'
 gem 'pony'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'mail'
 
 group :test do
   gem 'bcrypt'
@@ -14,4 +15,5 @@ group :test do
   gem 'rubocop', '0.79.0'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  
 end
