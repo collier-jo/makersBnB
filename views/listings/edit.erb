@@ -3,11 +3,11 @@
 <form action="/listings/<%= @listing_id %>" method="post">
   <input type="hidden" name="_method" value="PATCH">
   <label for="name">Location name</label>
-  <input type="text" name="name" value="" placeholder="" required>
+  <input type="text" name="name" value="<%= @listing.name %>" required>
   <label for="price">Price per night</label>
-  <input type="text" name="price" value="" placeholder="" required>
+  <input type="text" name="price" value="<%= @listing.price %>" required>
   <label for="description">Description</label>
-  <textarea name="description" rows="8" cols="80"></textarea>
+  <textarea name="description" rows="8" cols="80"><%= @listing.description %></textarea>
   <label for="url">Add pictures</label>
   <input type="url" name="url" value="">
   <input type="submit" name="" value="Update">

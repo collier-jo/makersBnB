@@ -16,6 +16,10 @@ feature 'User profile page' do
     expect(page).to have_content 'Village House'
     expect(page).to have_content 'Lovely cottage in the countryside'
     expect(page).to have_css "img[src='https://live.staticflickr.com/4159/33385628794_b912df519b_m.jpg']"
+
+    click_button('Home')
+    
+    expect(page).to have_content 'Welcome to MakersBnB'
   end
 
   scenario 'a user can update his own listings' do
